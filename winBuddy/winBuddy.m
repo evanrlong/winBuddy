@@ -234,7 +234,7 @@ static void *isActive = &isActive;
     border.autoresizingMask = NSViewHeightSizable | NSViewWidthSizable;
     border.borderType = NSLineBorder;
     border.borderColor = [NSColor blackColor];
-    border.borderWidth = 1;
+    border.borderWidth = 2;
     child.contentView = border;
     child.ignoresMouseEvents = YES;
     child.movableByWindowBackground = NO;
@@ -354,7 +354,7 @@ static void *isActive = &isActive;
 //    NSLog(@"wb_ Process Name: '%@' Process ID:'%d'", processName, processID);
 
     NSWindow *borderWin = objc_getAssociatedObject(self, borderKey);
-    [borderWin.contentView setBorderColor:self.isKeyWindow ? [NSColor redColor] : [NSColor blackColor]];
+    [borderWin.contentView setBorderColor:self.isKeyWindow ? [Defaults hexStringToColor:(@"ab4642")] : [Defaults hexStringToColor:(@"585858")]];
     [borderWin setFrame:self.frame display:YES];
     if (![ReadPref(@"ShowBorder") boolValue])
         [borderWin.contentView setBorderColor:[NSColor clearColor]];
